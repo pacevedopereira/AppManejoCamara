@@ -37,11 +37,13 @@ public class MainActivity extends ActionBarActivity {
         file.mkdirs();
 
         //damos accion al boton
+        //cuando se pulsa el boton se abre la camara para hacer la foto y
+        //despues de hacerla se vuelve a la aplicacion
         boton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                String file = ruta_fotos + getCode() + ".jpg";
+                String file = "sdcard/pictures/misfotos/" + getCode() + ".jpg";
                 File mi_foto = new File(file);
                 try {
                     mi_foto.createNewFile();
@@ -66,7 +68,8 @@ public class MainActivity extends ActionBarActivity {
     }
 
 
-    //metodo para generar un codigo con la fecha del sistema: photoCode
+    //metodo para generar un nombre único para cada foto con la fecha del sistema: photoCode
+    //tendra el formato  “pic_yyyymmddhhmmss.jpg
     //@SuppressLint("SimpleDateFormat")
     private String getCode() {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyymmddhhmmss");
